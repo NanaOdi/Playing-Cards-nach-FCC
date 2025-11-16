@@ -1,49 +1,100 @@
-/* style*/
+/* -----------------------------
+   Allgemeine Seiteinstellungen
+------------------------------*/
 body{
     background-image: url(https://images.unsplash.com/photo-1655159428752-c700435e9983?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    /* Hintergrundbild der Seite */
 }
+
+/* -----------------------------
+   Kartenspezifische Farben
+------------------------------*/
 .red{
-    color: red;
+    color: red; /* Herz und Diamant werden rot dargestellt */
 }
+
+/* -----------------------------
+   Flipped-Symbole
+------------------------------*/
 .flipped{
-    transform: rotate(180deg);
+    transform: rotate(180deg); /* Symbol um 180° drehen */
 }
+
+/* -----------------------------
+   Flex-Container für alle Karten
+------------------------------*/
 #playing-cards{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    margin-top: 100px; /* Abstand vom oberen Seitenrand */
+    display: flex; /* Flexbox für Karten-Layout */
+    justify-content: center; /* Karten horizontal zentrieren */
+    gap: 20px; /* Abstand zwischen Karten */
+    flex-wrap: wrap; /* Karten umbrechen, wenn nicht genug Platz */
+    align-items: flex-start; /* Karten oben ausrichten */
 }
+
+/* -----------------------------
+   Einzelne Karte
+------------------------------*/
 .card{
-    background-color: rgb(211, 236, 207);
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px gray;
+    background-color: rgb(211, 236, 207); /* Karte hellgrün */
+    border: 1px solid black; /* Rand */
+    border-radius: 10px; /* abgerundete Ecken */
+    box-shadow: 2px 2px 2px gray; /* leichter Schatten */
     min-width: 250px;
     max-width: 250px;
     height: 350px;
-    font-size: 30px;
+    font-size: 30px; /* Standardtextgröße */
     font-weight: bold;
-    padding: 5px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+    padding: 5px; /* Innenabstand */
+    box-sizing: border-box; /* Padding wird zur Größe hinzugezählt */
+    display: flex; /* Flexbox für inneren Inhalt */
+    justify-content: space-between; /* Linke, mittlere, rechte Bereiche */
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-Animation */
 }
+
+/* -----------------------------
+   Linke Ecke der Karte
+------------------------------*/
 .left{
-    align-self: flex-start;
-}
-.middle{
-    align-self: center;
+    align-self: flex-start; /* Oben ausrichten */
     display: flex;
-    font-size: 80px;
-    flex-direction: column;
+    flex-direction: column; /* Rang über Symbol */
+    justify-content: space-between;
 }
-.right{
-    align-self: flex-end;
+
+/* -----------------------------
+   Mittlerer Bereich der Karte
+------------------------------*/
+.middle{
+    align-self: center; /* vertikal zentriert */
+    display: flex;
+    font-size: 80px; /* Symbolgröße */
+    flex-direction: column; /* Symbole untereinander */
 }
+
+/* Optional: Abschnitt für mehrere Symbole in der Mitte */
 .middle-section{
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Symbole horizontal zentrieren */
 }
+
+/* -----------------------------
+   Rechte Ecke der Karte
+------------------------------*/
+.right{
+    align-self: flex-end; /* unten ausrichten */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* -----------------------------
+   Hover-Effekt für Karten
+------------------------------*/
+.card:hover{
+    transform: translateY(-10px) scale(1.05); /* Karte leicht heben und vergrößern */
+    box-shadow: 4px 8px 12px rgba(0,0,0,0.3); /* Schatten verstärken */
+    background-color: #e0f7e0; /* optional: leicht hellerer Hintergrund */
+}
+
